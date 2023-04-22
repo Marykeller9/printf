@@ -14,7 +14,7 @@
 int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	char extra_c = 0, padd = '';
+	char extra_c = 0, padd = ' ';
 	int ind = BUFF_SIZE - 2, length = 2, padd_start = 1; /* length=2 for '0x' */
 	unsigned long num_addrs;
 	char map_to[] = "0123456789abcdef";
@@ -27,13 +27,13 @@ int print_pointer(va_list types, char buffer[],
 		return (write(1, "nil)", 5));
 
 	buffer[BUFF_SIZE - 1] = '\0';
-	UNSUSED(precision);
+	UNUSED(precision);
 
 	num_addrs = (unsigned long)addrs;
 
 	while (num_addrs > 0)
 	{
-		buffer[ind--] map_to[num_addrs % 16];
+		buffer[ind--] = map_to[num_addrs % 16];
 		num_addrs /= 16;
 		length++;
 	}
@@ -42,7 +42,7 @@ int print_pointer(va_list types, char buffer[],
 	if (flags & F_PLUS)
 		extra_c = '+', length++;
 	else if (flags & F_SPACE)
-		extra_c = '', length++;
+		extra_c = ' ', length++;
 
 	ind++;
 
@@ -124,7 +124,7 @@ int print_reverse(va_list types, char buffer[],
 	}
 	for (i = 0; str[i]; i++)
 		;
-	for (i = i - 1; i >= 0, i--)
+	for (i = i - 1; i >= 0; i--)
 	{
 		char z = str[i];
 
