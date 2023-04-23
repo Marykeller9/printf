@@ -153,9 +153,9 @@ int print_rot13string(va_list types, char buffer[],
 	unsigned int i, j;
 	int count = 0;
 	char in[] =
-"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwzyz";
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char out[] =
-"NOPQRSTUVVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+"NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	str = va_arg(types, char *);
 	UNUSED(buffer);
